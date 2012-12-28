@@ -1,0 +1,1 @@
+		$this->theme->set_partial('content', '<?php echo $view_path ?>/index')->set('<?php echo $plural_name ?>', Model_<?php echo $model_name; ?>::find('all'));

@@ -1,0 +1,50 @@
+/* CSS TYPO - Typography Settings */
+
+*, html, body { font-family: "Droid Sans", helvetica, arial, sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: "Droid Serif", georgia, serif; margin: 0 0 0.3em 0; }
+
+h1 { font-size: 40px; }
+h2 { font-size: 36px; }
+h3 { font-size: 32px; }
+h4 { font-size: 28px; }
+h5 { font-size: 24px; }
+h6 { font-size: 18px; }
+
+a:link, a:hover, a:active, a:visited { text-decoration: none; border: none; outline: none; }
+a, a:link { color: #c141ff; }
+
+p, pre, abbr, dl, dt, dd, ol, ul, li, span, small, a { font-family: "Droid Sans", helvetica, arial, sans-serif; font-style: normal; font-weight: normal; text-transform: normal; letter-spacing: normal; line-height: 1.4em; }
+
+p, ul, ol { color: #515151; font-size: 13px; margin: 0 0 25px 0; }
+
+ul, ol { margin: 0 0 25px 15px; }
+ul li {}
+ol li { list-style-type: decimal; }
+
+em { font-style: italic; }
+strong { font-weight: bold; }
+sup { font-size: xx-small; vertical-align: top; }
+sub { font-size: xx-small; vertical-align: bottom; }
+acronym, abbr { font-weight: bold; text-transform: uppercase; font-size: 12px; }
+dt { font-weight: bold; }
+dd { font-style: italic; }
+
+@font-face {
+	font-family: 'BebasNeueRegular';
+	src: url('../fonts/BebasNeue-webfont.eot');
+	src: url('../fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/BebasNeue-webfont.woff') format('woff'),
+		 url('../fonts/BebasNeue-webfont.ttf') format('truetype'),
+		 url('../fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: "BebasNeueRegular"; text-shadow: 1px 1px 0px #ffffff; }
+#intro h1 { font-family: "BebasNeueRegular";  text-shadow: 2px 3px 0px #1d1d1d; }
+#calltos #discover .link { font-family: "BebasNeueRegular"; text-shadow: 0px 3px 0px #c02fcf; }
+#calltos #contribute .link { font-family: "BebasNeueRegular"; text-shadow: 0px 3px 0px #9e31d6; }
+#calltos #cells .link { font-family: "BebasNeueRegular"; text-shadow: 0px 3px 0px #7431d6; }
+#footer h6 { font-family: "BebasNeueRegular"; text-shadow: none; }
+h4 a { font-family: "BebasNeueRegular"; text-shadow: 1px 1px 0px #ffffff; }
+
