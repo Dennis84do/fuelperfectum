@@ -1,6 +1,6 @@
-#FuelPHP with Perfectum Backend Template and Oil extension
+#FuelPHP Repository with Perfectum Dashboard Admin Template and Oil extension for this Template
 
-* Version: 1.4
+* FuelPHP Version: 1.4
 
 ## Description
 
