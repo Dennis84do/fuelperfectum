@@ -4,9 +4,11 @@
 			
 			if ($val->run())
 			{
-				$<?php echo $singular_name; ?> = Model_<?php echo $model_name; ?>::forge(array(
+				$<?php echo $singular_name; ?> = Model_<?php echo $model_name; ?>::forge(array(				
 <?php foreach ($fields as $field): ?>
+<?php if ($field['name'] != 'xml'): ?>
 					'<?php echo $field['name']; ?>' => Input::post('<?php echo $field['name']; ?>'),
+<?php endif; ?>
 <?php endforeach; ?>
 				));
 

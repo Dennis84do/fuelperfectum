@@ -14,7 +14,9 @@
 			  	<thead>
 					<tr>
 		<?php foreach ($fields as $field): ?>
-				<th><?php echo \Inflector::humanize($field['name']); ?></th>
+				<?php if ($field['name'] != 'xml'): ?><?php echo "\n" ?>
+						<th><?php echo \Inflector::humanize($field['name']); ?></th>
+				<?php endif; ?><?php echo "\n" ?>
 		<?php endforeach; ?>
 				<th>Actions</th>
 					</tr>
@@ -23,7 +25,9 @@
 			  	<?php echo "<?php"; ?> foreach ($<?php echo $plural_name; ?> as $<?php echo $singular_name; ?>): <?php echo "?>\n"; ?>
 			  		<tr>
 		<?php foreach ($fields as $field): ?>
-				<td><?php echo "<?php"; ?> echo $<?php echo $singular_name."->".$field['name']; ?>; <?php echo "?>"; ?></td>
+		<?php if ($field['name'] != 'xml'): ?><?php echo "\n" ?>
+						<td><?php echo "<?php"; ?> echo $<?php echo $singular_name."->".$field['name']; ?>; <?php echo "?>"; ?></td>
+		<?php endif; ?><?php echo "\n" ?>
 		<?php endforeach; ?>
 				<td class="center">
 							<a class="btn btn-success" href="#viewModal_<?php echo '<?php'; ?> echo $<?php echo $singular_name; ?>->id; <?php echo '?>'; ?>" data-toggle="modal">
@@ -34,7 +38,12 @@
 							</a>
 							<a class="btn btn-danger" href="#deleteModal_<?php echo '<?php'; ?> echo $<?php echo $singular_name; ?>->id; <?php echo '?>'; ?>" data-toggle="modal">
 								<i class="icon-trash icon-white"></i> 
-							</a>					
+							</a>	
+							<?php echo "<?php if (\${$singular_name}->xml): ?>\n"; ?>
+								<a class="btn btn-warning" href="#xmlModal_<?php echo '<?php'; ?> echo $<?php echo $singular_name; ?>->id; <?php echo '?>'; ?>" data-toggle="modal">
+									<i class="icon-comment icon-white"></i> 
+								</a>
+							<?php echo "<?php endif; ?>\n"; ?>
 						</td>
 					</tr>
 				<?php echo "<?php endforeach; ?>\n"; ?>
@@ -47,7 +56,9 @@
 				<thead>
 					<tr>
 		<?php foreach ($fields as $field): ?>
-				<th><?php echo \Inflector::humanize($field['name']); ?></th>
+		<?php if ($field['name'] != 'xml'): ?><?php echo "\n" ?>
+						<th><?php echo \Inflector::humanize($field['name']); ?></th>
+		<?php endif; ?><?php echo "\n" ?>
 		<?php endforeach; ?>
 				<th>Actions</th>
 				  	</tr>
@@ -77,6 +88,21 @@
 				<?php echo Form::submit(array('name'=>'cancel','value'=>'Back','class'=>'btn btn-success','data-dismiss'=>'modal')); ?><?php echo "\n" ?>
 			</div>
 		</div>	
+		<?php echo "<?php if (\${$singular_name}->xml): ?>\n"; ?>
+			<!-- Modal XML Object -->
+			<div class="modal hide fade" id="xmlModal_<?php echo '<?php'; ?> echo $<?php echo $singular_name; ?>->id; <?php echo '?>'; ?>">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">x</button>
+					<h3>XML View <?php echo \Str::ucfirst($singular_name); ?> #<?php echo "<?php"; ?> $<?php echo $singular_name; ?>->id; <?php echo "?>"; ?></h3>
+				</div>
+				<div class="modal-body">
+					<?php echo "<?php echo \Theme::instance()->view('xml/popup')->set('xml', \${$singular_name}->xml); ?>\n"; ?>
+				</div>
+				<div class="modal-footer">
+					<input name="cancel" value="Back" class="btn btn-warning" data-dismiss="modal" type="submit" id="form_cancel" />
+				</div>
+			</div>	
+		<?php echo "<?php endif; ?>\n"; ?>
 		<!-- Modal Delete Object -->
 		<div class="modal hide fade" id="deleteModal_<?php echo '<?php'; ?> echo $<?php echo $singular_name; ?>->id; <?php echo '?>'; ?>">
 			<div class="modal-header">
