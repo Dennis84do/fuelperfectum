@@ -1,1 +1,0 @@
-<pre name="code" class"xml"><?php print $xml; ?></pre>

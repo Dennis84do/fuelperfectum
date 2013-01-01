@@ -7,9 +7,7 @@
         if ($val->run())
         {
 <?php foreach ($fields as $field): ?>
-<?php if ($field['name'] != 'xml'): ?>    
 			$<?php echo $singular_name; ?>-><?php echo $field['name']; ?> = Input::post('<?php echo $field['name']; ?>');
-<?php endif; ?>
 <?php endforeach; ?>
 
             if ($<?php echo $singular_name; ?>->save())

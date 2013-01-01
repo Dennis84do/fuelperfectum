@@ -25,15 +25,6 @@ class Model_<?php echo $model_name; ?> extends Model
 			'events' => array('before_save'),
 			'mysql_timestamp' => false,
 		),
-		
-	<?php foreach ($fields as $field): ?>
-	<?php if ($field['name'] == 'xml'): ?>
-'Orm\Observer_Xml' => array(
-			'events' => array('after_insert','before_update'),
-			'mysql_timestamp' => false,
-			),	
-	<?php endif; ?>			
-	<?php endforeach; ?>		
 	);
 <?php endif; ?>
 
@@ -56,15 +47,7 @@ class Model_<?php echo $model_name; ?> extends Model
 		{
 			$rules[] = 'valid_string[numeric]';
 		}
-		elseif (in_array($field['type'], array('blob')))
-		{
-			if ($field['name'] === 'xml')
-			{
-				unset($rules);
-			}	
-		}
-
-
+		
 		$rules = implode('|', $rules);
 ?>
 		$val->add_field('<?php echo $field['name']; ?>', '<?php echo ucwords(str_replace('_', ' ', $field['name'])); ?>', '<?php echo $rules; ?>');
